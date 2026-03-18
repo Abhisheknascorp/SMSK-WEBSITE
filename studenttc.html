@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>SMSK-Transfer Certificate</title>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <meta content="" name="keywords">
+      <meta content="" name="description">
+      <!-- Favicon -->
+      <link href="img/favicon.png" rel="icon">
+      <!-- Google Web Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link
+         href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
+         rel="stylesheet">
+      <!-- Icon Font Stylesheet -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+      <!-- Libraries Stylesheet -->
+      <link href="lib/animate/animate.min.css" rel="stylesheet">
+      <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+      <!-- Customized Bootstrap Stylesheet -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <!-- Template Stylesheet -->
+      <link href="css/style.css" rel="stylesheet">
+      <style>
+         /* ===== MODAL BACKDROP ===== */
+         #myModal {
+         display: none;
+         position: fixed;
+         z-index: 9999;
+         inset: 0;
+         background: rgba(0, 0, 0, 0.6);
+         backdrop-filter: blur(6px);
+         padding: 20px;
+         }
+         /* ===== MODAL BOX ===== */
+         .modal-content {
+         background: #ffffff;
+         margin: auto;
+         padding: 0;
+         width: 100%;
+         max-width: 650px;
+         border-radius: 16px;
+         overflow: hidden;
+         animation: fadeInUp 0.3s ease;
+         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+         }
+         /* ===== HEADER ===== */
+         .modal-header {
+         background: linear-gradient(135deg, #1B1394, #07294D);
+         color: #fff;
+         padding: 16px;
+         text-align: center;
+         font-size: 20px;
+         font-weight: 600;
+         position: relative;
+         }
+         /* CLOSE BUTTON */
+         .close-x {
+         position: absolute;
+         right: 15px;
+         top: 10px;
+         font-size: 26px;
+         cursor: pointer;
+         color: #fff;
+         }
+         /* ===== BODY ===== */
+         .modal-body {
+         padding: 20px;
+         }
+         /* STUDENT IMAGE */
+         .student-img {
+         display: block;
+         margin: 0 auto 15px;
+         height: 110px;
+         width: 100px;
+         border-radius: 10px;
+         border: 2px solid #eee;
+         object-fit: cover;
+         }
+         /* ===== DATA ROW ===== */
+         .data-row {
+         display: flex;
+         justify-content: space-between;
+         padding: 10px 0;
+         border-bottom: 1px dashed #ddd;
+         font-size: 14px;
+         }
+         .data-row span:first-child {
+         font-weight: 600;
+         color: #07294D;
+         }
+         .data-row span:last-child {
+         color: #333;
+         text-align: right;
+         }
+         /* ===== FOOTER BUTTON ===== */
+         .modal-footer {
+         text-align: center;
+         padding: 15px;
+         }
+         .modal-footer button {
+         background: #FFD700;
+         color: #000;
+         font-weight: 600;
+         border: none;
+         padding: 10px 25px;
+         border-radius: 8px;
+         transition: 0.3s;
+         }
+         .modal-footer button:hover {
+         background: #e6c200;
+         }
+         /* ===== ANIMATION ===== */
+         @keyframes fadeInUp {
+         from {
+         opacity: 0;
+         transform: translateY(40px);
+         }
+         to {
+         opacity: 1;
+         transform: translateY(0);
+         }
+         }
+         /* ===== MOBILE ===== */
+         @media (max-width: 480px) {
+         .modal-content {
+         max-width: 95%;
+         }
+         .data-row {
+         flex-direction: column;
+         gap: 4px;
+         }
+         .data-row span:last-child {
+         text-align: left;
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <div id="navbar-container"></div>
+      <!-- Navbar End -->
+      <!-- Page Header Start -->
+      <div class="container-xxl py-5 page-header position-relative mb-5">
+         <div class="container py-5">
+            <h1 class="display-2 text-white animated slideInDown mb-4">Transfer Certificate</h1>
+         </div>
+      </div>
+      <!-- Page Header End -->
+      <!-- About Start --> 
+      <div style="padding: 3rem 0;  text-align: center;">
+         <div style="display: flex; justify-content: center; align-items: center;">
+            <div style="text-align: center;">
+               <!-- <h2 style="text-align: center; color: #EA512E; font-size: 2.5rem; margin: 0;">Transfer Certificate</h2> -->
+               <div style="width: 380px;  padding: 1.5rem; border-radius: 20px; background-color: #1B1394;height:300px;">
+                  <form id="studentTCDetailsForm">
+                     <div style="margin-bottom: 2rem;">
+                        <input type="text"  name="admNumber" id="admNumber" style="width: 100%; border: 0; padding: 1.5rem; border-radius: 5px;" placeholder="SMSK ADM NO">
+                     </div>
+                     <div style="margin-bottom: 2rem;">
+                        <input type="date"  name="dob" id="dob" style="width: 100%; border: 0; padding: 1.5rem; border-radius: 5px;" placeholder="DATE OF BIRTH">
+                     </div>
+                     <div style="text-align: center;">
+                        <button style="background-color: #FFD700; color: black;font-weight: 900; padding: 1.2rem 3rem; border: none; border-radius: 5px; cursor: pointer;" type="submit" name="tcBtnSubmit" id="tcBtnSubmit">Verify TC</button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+         <div id="myModal" class="modal">
+            <div class="modal-content">
+               <!-- Content will be dynamically loaded here -->
+            </div>
+         </div>
+         <!-- Testimonial End -->
+         <div id="footer-container"></div>
+         <!-- Footer End -->
+         <!-- Back to Top -->
+         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top ytb"><i class="bi bi-arrow-up"></i></a>
+      </div>
+      <!-- JavaScript Libraries -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/wow/wow.min.js"></script>
+      <script src="lib/easing/easing.min.js"></script>
+      <script src="lib/waypoints/waypoints.min.js"></script>
+      <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+      <!-- Template Javascript -->
+      <script>
+         // Header/Footer loading (works even if jQuery is missing)
+         (function () {
+           if (window.jQuery) {
+             $(function () {
+               $("#header").load("header.html");
+               $("#footer").load("footer.html");
+             });
+           } else {
+             document.addEventListener('DOMContentLoaded', async () => {
+               const inject = async (sel, url) => {
+                 const el = document.querySelector(sel);
+                 if (!el) return;
+                 try { const r = await fetch(url); el.innerHTML = await r.text(); } catch (_) {}
+               };
+               inject("#header", "header.html");
+               inject("#footer", "footer.html");
+             });
+           }
+         })();
+         
+         // === Form Submission Logic (robust) ===
+         document.addEventListener('DOMContentLoaded', function () {
+           const form = document.getElementById('studentTCDetailsForm');
+           if (!form) return;
+         
+           form.addEventListener('submit', onSubmit);
+         });
+         
+         async function onSubmit(e) {
+           e.preventDefault();
+         
+           const admNum = document.getElementById('admNumber');
+           const dob = document.getElementById('dob');
+           const btn = document.getElementById('tcBtnSubmit');
+         
+           if (!admNum.value.trim()) {
+               admNum.focus();
+               return;
+           }
+         
+         
+           // Disable button while fetching
+           const origBtnText = btn.textContent;
+           btn.disabled = true;
+           btn.textContent = 'Verifying...';
+         
+           const url = 'https://smsk.nascorptechnologies.com/gw/gls/verifyTransferCertificateDetails?token=bz8unGwZ2ExKLtrBLY';
+            const params = new URLSearchParams({
+                   admNumber: admNum.value.trim().toUpperCase(),
+                   dob: dob.value
+               });
+         
+         
+           try {
+             const resp = await fetch(`${url}&${params.toString()}`, { method: 'GET' });
+             if (!resp.ok) throw new Error('Network response was not ok: ' + resp.status);
+         
+             const data = await resp.json();
+         
+             console.log('data', data)
+         
+             // Normalize possible response shapes
+             let record = null;
+             if (Array.isArray(data)) {
+               record = data[0] || null;
+             } else if (data && Array.isArray(data.result)) {
+               record = data.result[0] || null;
+             } else if (data && Array.isArray(data.data)) {
+               record = data.data[0] || null;
+             } else if (data && typeof data === 'object') {
+               // if single record object
+               record = data.tc;
+             }
+         
+             if (record) {
+               showModal(record);
+             } else {
+               showNoRecordFound();
+             }
+           } catch (err) {
+             console.error('Error:', err);
+             showNoRecordFound();
+           } finally {
+             btn.disabled = false;
+             btn.textContent = origBtnText;
+           }
+         }
+         
+         // === Modal helpers ===
+         function showModal(data) {
+           const img = data.stuProfileImage || '';
+           const stuName = safe(data.studentName);
+           const admNo = safe(data.enrollmentNo || '');
+           const fatherName = safe(data.fatherName);
+           const motherName = safe(data.motherName);
+           const cls = safe(data.lClName || '');
+           const sec = safe(data.section || '');
+           const dob = safe(data.dob  || '');
+           const session = safe(data.academicYear || '');
+           const doi = safe(data.doi  || '');
+         
+           const modalContent = `
+             <span class="close-x" onclick="closeModal()" aria-label="Close">&times;</span>
+             <div class="container my-4">
+               <div style="font-size: 24px; color: #07294D; line-height: 1; font-weight: 600; margin: 10px 0; text-align:center;">
+                 Student Details
+               </div>
+         
+               <div class="text-center mb-3" style="text-align:center; margin-bottom:12px;">
+                 ${img ? `<img src="${img}" alt="Student Image"
+                         style="height: 150px; width: 130px; border-radius: 8px; border: 2px solid black; object-fit: cover;">`
+                       : `<div style="height:150px; width:130px; border-radius:8px; border:2px solid #ccc; display:inline-flex; align-items:center; justify-content:center;">No Image</div>`}
+               </div>
+         
+               <div class="bg-div border p-3 mx-2" style="border: 2px solid gray; padding:12px;">
+                 ${row('STUDENT\'S NAME', stuName)}
+                 ${row('ADMISSION NO', admNo)}
+                 ${row('FATHER’S NAME', fatherName)}
+                 ${row('CLASS & SEC', `${cls}${sec ? '-' + sec : ''}`)}
+                 ${row('MOTHER’S NAME', motherName)}
+                 ${row('DATE OF BIRTH', dob)}
+                 ${row('SESSION', session)}
+                 ${row('DATE OF ISSUE', doi)}
+               </div>
+         
+               <div class="text-center mt-3" style="text-align:center; margin-top:12px;">
+                 <button onclick="closeModal()" class="btn btn" style="border-radius: 9px; padding: 8px 20px; width: 160px; background-color:#07294D; color:white;">
+                   Close
+                 </button>
+               </div>
+             </div>
+           `;
+         
+           const modal = document.getElementById('myModal');
+           modal.style.display = 'block';
+           const content = modal.querySelector('.modal-content');
+           content.innerHTML = modalContent;
+         
+           // Close on outside click & Esc
+           modal.addEventListener('click', outsideCloseOnce);
+           document.addEventListener('keydown', escCloseOnce);
+         }
+         
+         function row(label, value) {
+           return `
+             <div class="row mb-2" style="display:flex; margin-bottom:8px;">
+               <div class="col-6 fw-bold" style="flex:1; font-weight:700;">${label}:</div>
+               <div class="col-6" style="flex:1;">${value || '-'}</div>
+             </div>`;
+         }
+         
+         function showNoRecordFound() {
+           const messageContent = `
+             <span class="close-x" onclick="closeModal()" aria-label="Close">&times;</span>
+             <div style="text-align:center;">
+               <h2 style="margin:0 0 8px;">No Record Found</h2>
+               <p style="margin:0 0 16px;">No record found for the given details. Please check the information and try again.</p>
+               <button onclick="closeModal()" style="border-radius:9px; padding:8px 20px; background:#07294D; color:#fff;">Close</button>
+             </div>`;
+           const modal = document.getElementById('myModal');
+           modal.style.display = 'block';
+           modal.querySelector('.modal-content').innerHTML = messageContent;
+         
+           // Close on outside click & Esc
+           modal.addEventListener('click', outsideCloseOnce);
+           document.addEventListener('keydown', escCloseOnce);
+         }
+         
+         function closeModal() {
+           const modal = document.getElementById('myModal');
+           modal.style.display = 'none';
+           modal.removeEventListener('click', outsideCloseOnce);
+           document.removeEventListener('keydown', escCloseOnce);
+         }
+         
+         function outsideCloseOnce(e) {
+           if (e.target.id === 'myModal') closeModal();
+         }
+         
+         function escCloseOnce(e) {
+           if (e.key === 'Escape') closeModal();
+         }
+         
+         // Basic escape for text (prevents accidental HTML injection)
+         function safe(v) {
+           if (v == null) return '';
+           return String(v)
+             .replace(/&/g, '&amp;')
+             .replace(/</g, '&lt;')
+             .replace(/>/g, '&gt;');
+         }
+      </script>
+      <script src="js/loader.js"></script> 
+      <script src="js/footer.js"></script>
+   </body>
+</html>
